@@ -608,8 +608,8 @@ var Icon$1d = function (props) {
 };
 
 var Icon$1c = function (props) {
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 256 256" }, props),
-        React__default['default'].createElement("image", { width: "256", height: "256", href: '/images/custom/logo.png' })));
+    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 223 223" }, props),
+        React__default['default'].createElement("image", { width: "223", height: "223", href: '/images/custom/logo.png' })));
 };
 
 var Icon$1b = function (props) {
@@ -3798,8 +3798,8 @@ var Icon$a = function (props) {
 
 var Logo$2 = function (_a) {
     var isDark = _a.isDark, props = __rest(_a, ["isDark"]);
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 250 40" }, props),
-        React__default['default'].createElement("image", { width: "250", height: "40", href: isDark ? '/images/custom/logo-text-dark.png' : '/images/custom/logo-text-white.png' })));
+    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 142 55" }, props),
+        React__default['default'].createElement("image", { width: "142", height: "55", href: isDark ? '/images/custom/logo-text-dark.png' : '/images/custom/logo-text-white.png' })));
 };
 var LogoWithText = React__default['default'].memo(Logo$2, function (prev, next) { return prev.isDark === next.isDark; });
 
