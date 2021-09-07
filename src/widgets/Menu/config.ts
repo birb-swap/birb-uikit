@@ -141,14 +141,34 @@ export const links = [
 
 export const socials = [
   {
-    label: "Telegram",
-    icon: "TelegramIcon",
-    href: "https//t.me/BitBucksOfficial"
-  },
-  {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/JamesBitBucks "
+    href: "https://twitter.com/BirbDefi"
+  },
+  {
+    label: "Telegram",
+    icon: "TelegramIcon",
+    href: "https://t.me/birbdefi"
+  },
+  {
+    label: "Medium",
+    icon: "MediumIcon",
+    href: "https://medium.com/birb"
+  },
+  {
+    label: "Instagram",
+    icon: "InstagramIcon",
+    href: "https://www.instagram.com/birbdefi/"
+  },
+  {
+    label: "Youtube",
+    icon: "YoutubeIcon",
+    href: "https://www.youtube.com/channel/UCofh6d6QSBGdKX9KPZh75SA"
+  },
+  {
+    label: "Github",
+    icon: "GithubIcon",
+    href: "https://github.com/birbdev"
   },
 ];
 

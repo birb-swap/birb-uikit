@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { PancakeRoundIcon } from "../../../components/Svg";
+import { BirbRoundIcon } from "../../../components/Svg";
 import Text from "../../../components/Text/Text";
 import Skeleton from "../../../components/Skeleton/Skeleton";
 
 interface Props {
-  cakePriceUsd?: number;
+  birbPriceUsd?: number;
 }
 
 const PriceLink = styled.a`
@@ -21,18 +21,18 @@ const PriceLink = styled.a`
   }
 `;
 
-const CakePrice: React.FC<Props> = ({ cakePriceUsd }) => {
-  return cakePriceUsd ? (
+const BirbPrice: React.FC<Props> = ({ birbPriceUsd }) => {
+  return birbPriceUsd ? (
     <PriceLink
-      href="https://bscscan.com/token/0xa8c8b5FD46Ff21C6F482847a4f252C6Af84f54DB"
+      href="https://bscscan.com/token/0x82a479264b36104be4fdb91618a59a4fc0f50650"
       target="_blank"
     >
-      <PancakeRoundIcon width="24px" mr="8px" />
-      <Text color="textSubtle" bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+      <BirbRoundIcon width="24px" mr="8px" />
+      <Text color="textSubtle" bold>{`$${birbPriceUsd.toFixed(3)}`}</Text>
     </PriceLink>
   ) : (
     <Skeleton width={80} height={24} />
   );
 };
 
-export default React.memo(CakePrice);
+export default React.memo(BirbPrice);
