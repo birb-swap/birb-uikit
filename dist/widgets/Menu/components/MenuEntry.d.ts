@@ -4,6 +4,7 @@ import { Colors } from "../../../theme/types";
 export interface Props {
     secondary?: boolean;
     isActive?: boolean;
+    isPushed: boolean;
     theme: DefaultTheme;
 }
 declare const MenuEntry: import("styled-components").StyledComponent<"div", DefaultTheme, Props, never>;
@@ -12,5 +13,6 @@ declare const LinkStatus: import("styled-components").StyledComponent<"div", Def
 }, never>;
 declare const LinkLabelMemo: React.MemoExoticComponent<import("styled-components").StyledComponent<"div", DefaultTheme, {
     isPushed: boolean;
+    isActive: boolean;
 }, never>>;
 export { MenuEntry, LinkStatus, LinkLabelMemo as LinkLabel };

@@ -31,7 +31,7 @@ export const links = [
       },
       {
         label: "Liquidity",
-        href: "https://exchange.pancakeswap.finance/#/pool",
+        href: "https://exchange.pancakeswap.finance/#/liquidity",
       },
     ],
   },
@@ -173,6 +173,8 @@ export const socials = [
 ];
 
 export const MENU_HEIGHT = 64;
-export const MENU_ENTRY_HEIGHT = 48;
+export const MENU_ENTRY_HEIGHT_FULL = 56;
+export const MENU_FOOTER_HEIGHT = 36;
+export const MENU_ENTRY_HEIGHT_REDEUCED = 48;
 export const SIDEBAR_WIDTH_FULL = 240;
 export const SIDEBAR_WIDTH_REDUCED = 56;

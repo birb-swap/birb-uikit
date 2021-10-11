@@ -48,6 +48,20 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledFlex = styled(Flex)`
+  align-items: center;
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    & > * {
+      display: none;
+    }
+
+    & > ${StyledLink} {
+      display: none;
+    }
+  }
+`
+
 const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
@@ -58,7 +72,7 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   );
 
   return (
-    <Flex alignItems="center">
+    <StyledFlex>
       <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
         {isPushed ? (
           <HamburgerCloseIcon width="24px" color="textSubtle" />
@@ -67,15 +81,15 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
         )}
       </MenuButton>
       {isAbsoluteUrl ? (
-        <StyledLink as="a" href={href} aria-label="BitBucks home page">
+        <StyledLink as="a" href={href} aria-label="BirbSwap home page">
           {innerLogo}
         </StyledLink>
       ) : (
-        <StyledLink to={href} aria-label="BitBucks home page">
+        <StyledLink to={href} aria-label="BirbSwap home page">
           {innerLogo}
         </StyledLink>
       )}
-    </Flex>
+    </StyledFlex>
   );
 };
 

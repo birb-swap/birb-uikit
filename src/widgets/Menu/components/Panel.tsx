@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
+import { LogoIcon } from "../../../components/Svg";
+import Flex from "../../../components/Box/Flex";
+import { LogoIcon as LogoWithText } from "../icons";
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
   isMobile: boolean;
+  isDark: boolean;
+  href: string;
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
@@ -32,13 +38,59 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   ${({ theme }) => theme.mediaQueries.nav} {
     border-right: 2px solid rgba(133, 133, 133, 0.1);
     width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    z-index: 30;
+    padding-top: 0px;
+  }
+`;
+
+const StyledLink = styled(Link)<{ isPushed: boolean }>`
+  display: flex;
+  justify-content: center;
+
+  .mobile-icon {
+    width: 46px;
+    display: none;
+
+    ${({ theme }) => theme.mediaQueries.nav} {
+      display: ${({isPushed}) => (isPushed ? "none" : "block")};
+      margin-top: 20px;
+      margin-bottom: 36px;
+    }
+  }
+
+  .desktop-icon {
+    width: 170px;
+    display: none;
+
+    ${({ theme }) => theme.mediaQueries.nav} {
+      display: ${({isPushed}) => (isPushed ? "block" : "none")};
+      margin-top: 20px;
+      margin-bottom: 36px;
+    }
   }
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu } = props;
+  const { isPushed, isDark, href, showMenu } = props;
+  const isAbsoluteUrl = href.startsWith("http");
+  const innerLogo = (
+    <>
+      <LogoIcon className="mobile-icon" />
+      <LogoWithText className="desktop-icon" isDark={isDark} />
+    </>
+  );
+
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+      {isAbsoluteUrl ? (
+        <StyledLink as="a" href={href} isPushed={isPushed} aria-label="BirbSwap home page">
+          {innerLogo}
+        </StyledLink>
+      ) : (
+        <StyledLink to={href} isPushed={isPushed} aria-label="BirbSwap home page">
+          {innerLogo}
+        </StyledLink>
+      )}
       <PanelBody {...props} />
       <PanelFooter {...props} />
     </StyledPanel>

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean }>`
+const StyledNav = styled.nav<{ showMenu: boolean; isTransparent: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
@@ -26,8 +26,8 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
+  background-color: ${({ isTransparent, theme }) => isTransparent ? "transparent" : theme.nav.background};
+  border-bottom: ${({isTransparent}) => isTransparent ? "none" : "solid 2px rgba(133, 133, 133, 0.1)" };
   z-index: 20;
   transform: translate3d(0, 0, 0);
 `;
@@ -76,6 +76,7 @@ const Menu: React.FC<NavProps> = ({
   const isSmallerScreen = isMobile || isTablet;
   const [isPushed, setIsPushed] = useState(!isSmallerScreen);
   const [showMenu, setShowMenu] = useState(true);
+  const [isNavTransparent, setNavTransparent] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
 
   useEffect(() => {
@@ -87,6 +88,7 @@ const Menu: React.FC<NavProps> = ({
       if (isTopOfPage) {
         setShowMenu(true);
       }
+      
       // Avoid triggering anything at the bottom because of layout shift
       else if (!isBottomOfPage) {
         if (currentOffset < refPrevOffset.current) {
@@ -98,6 +100,7 @@ const Menu: React.FC<NavProps> = ({
         }
       }
       refPrevOffset.current = currentOffset;
+      setNavTransparent(isTopOfPage)
     };
     const throttledHandleScroll = throttle(handleScroll, 200);
 
@@ -105,14 +108,14 @@ const Menu: React.FC<NavProps> = ({
     return () => {
       window.removeEventListener("scroll", throttledHandleScroll);
     };
-  }, []);
+  }, [isMobile, isTablet]);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
   return (
     <Wrapper>
-      <StyledNav showMenu={showMenu}>
+      <StyledNav showMenu={showMenu} isTransparent={isNavTransparent}>
         <Logo
           isPushed={isPushed}
           togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
@@ -129,6 +132,7 @@ const Menu: React.FC<NavProps> = ({
           isMobile={isSmallerScreen}
           showMenu={showMenu}
           isDark={isDark}
+          href={homeLink?.href ?? "/"}
           toggleTheme={toggleTheme}
           langs={langs}
           setLang={setLang}

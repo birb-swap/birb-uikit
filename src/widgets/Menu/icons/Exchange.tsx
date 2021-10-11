@@ -8,15 +8,17 @@ const Icon: React.FC<SvgProps> = (props) => {
       <style>
         {`.st0{fill:none;stroke-width:2;stroke-miterlimit:10}`}
       </style>
-      <g id="Truck">
+      <g id="Sync">
         <path
           className="st0"
-          d="M41.5 37H43c2.3 0 4.1-1.9 4-4.1v-.3L45.5 15h-11l-1 14h-4l-1.3-14.7c-.4-4.1-3.8-7.3-8-7.3H1v28l8 2"
+          d="M5 17c4.4-5.4 8.6-12 19.1-12C34.5 5 43 13.5 43 24"
         />
-        <path className="st0" d="M19 37L31.5 37" />
-        <circle className="st0" cx={14} cy={37} r={5} />
-        <circle className="st0" cx={36.5} cy={37} r={5} />
-        <path className="st0" d="M46.5 25L39 25 39 15" />
+        <path className="st0" d="M5 7L5 17 15 17" />
+        <path
+          className="st0"
+          d="M43 31c-4.4 5.2-8.6 12-19.1 12C13.4 43 5 34.5 5 24.1V24"
+        />
+        <path className="st0" d="M43 41L43 31 33 31" />
       </g>
     </Svg>
   );

@@ -13,8 +13,8 @@ export const baseColors = {
 export const additionalColors = {
   binance: "#F0B90B",
   overlay: "#452a7a",
-  gold: "#FFC700",
-  silver: "#B2B2B2",
+  gold: "#461b00",
+  silver: "#828282",
   bronze: "#E7974D",
 };
 
@@ -29,10 +29,10 @@ export const lightColors: Colors = {
   dropdown: "#F6F6F6",
   dropdownDeep: "#EEEEEE",
   invertedContrast: "#FFFFFF",
-  input: "#eeeaf4",
+  input: "#FFFFFF",
   inputSecondary: "#d7caec",
   tertiary: "#EFF4F5",
-  text: "#8b5b20",
+  text: "#07162d",
   textDisabled: "#BDC2C4",
   textSubtle: "#508be0",
   disabled: "#E9EAEB",

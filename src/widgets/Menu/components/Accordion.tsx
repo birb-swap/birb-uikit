@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import styled from "styled-components";
-import { MENU_ENTRY_HEIGHT } from "../config";
+import { MENU_ENTRY_HEIGHT_FULL } from "../config";
 import { LinkLabel, LinkStatus as LinkStatusComponent, MenuEntry } from "./MenuEntry";
 import { LinkStatus, PushedProps } from "../types";
 import { ArrowDropDownIcon, ArrowDropUpIcon } from "../../../components/Svg";
@@ -15,11 +15,12 @@ interface Props extends PushedProps {
   isActive?: boolean;
 }
 
-const Container = styled.div`
+const Container = styled.div<{isPushed: boolean}>`
   display: flex;
   flex-direction: column;
   // Safari fix
   flex-shrink: 0;
+  padding-left: ${({ isPushed }) => (isPushed ? "16px" : "10px")};
 `;
 
 const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number }>`
@@ -53,21 +54,21 @@ const Accordion: React.FC<Props> = ({
   };
 
   return (
-    <Container>
-      <MenuEntry onClick={handleClick} className={className} isActive={isActive} role="button">
+    <Container isPushed={isPushed}>
+      <MenuEntry onClick={handleClick} className={className} isPushed={isPushed} isActive={isActive} role="button">
         {icon}
-        <LinkLabel isPushed={isPushed}>{label}</LinkLabel>
+        <LinkLabel isPushed={isPushed} isActive={isActive}>{label}</LinkLabel>
         {status && (
           <LinkStatusComponent color={status.color} fontSize="14px">
             {status.text}
           </LinkStatusComponent>
         )}
-        {isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+        {isPushed && (isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />)}
       </MenuEntry>
       <AccordionContent
         isOpen={isOpen}
         isPushed={isPushed}
-        maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT}
+        maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT_FULL}
       >
         {children}
       </AccordionContent>
