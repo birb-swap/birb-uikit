@@ -9,9 +9,13 @@ import Panel from "./components/Panel";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{background?: string}>`
   position: relative;
   width: 100%;
+  background-image: ${({background}) => (`url("${background}")`)};
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean; isTransparent: boolean }>`
@@ -66,6 +70,7 @@ const Menu: React.FC<NavProps> = ({
   toggleTheme,
   langs,
   setLang,
+  background,
   currentLang,
   cakePriceUsd,
   birbPriceUsd,
@@ -114,7 +119,7 @@ const Menu: React.FC<NavProps> = ({
   const homeLink = links.find((link) => link.label === "Home");
 
   return (
-    <Wrapper>
+    <Wrapper background={background}>
       <StyledNav showMenu={showMenu} isTransparent={isNavTransparent}>
         <Logo
           isPushed={isPushed}
