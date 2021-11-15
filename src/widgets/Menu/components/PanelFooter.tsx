@@ -22,7 +22,7 @@ const Container = styled.div`
 const SettingsEntry = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: ${MENU_FOOTER_HEIGHT}px;
   padding: 0 8px;
 `;
@@ -41,7 +41,7 @@ const PanelFooter: React.FC<Props> = ({
   toggleTheme,
   isDark,
   cakePriceUsd,
-  birbPriceUsd,
+  // birbPriceUsd,
   currentLang,
   langs,
   setLang,
@@ -58,17 +58,19 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
-      {/* <SocialEntry>
+      {/* <SocialEntry> */}
+      {/* <CakePrice cakePriceUsd={cakePriceUsd} /> */}
+      {/* <BirbPrice birbPriceUsd={birbPriceUsd} /> */}
+      {/* </SocialEntry> */}
+      <SettingsEntry>
+        {/* <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} /> */}
         <CakePrice cakePriceUsd={cakePriceUsd} />
-        <BirbPrice birbPriceUsd={birbPriceUsd} />
-      </SocialEntry> */}
+        <LangSelector currentLang={currentLang} langs={langs} setLang={setLang} />
+      </SettingsEntry>
       <SocialEntry>
         <SocialLinks />
       </SocialEntry>
-      <SettingsEntry>
-        {/* <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} /> */}
-        <LangSelector currentLang={currentLang} langs={langs} setLang={setLang} />
-      </SettingsEntry>
+
     </Container>
   );
 };
