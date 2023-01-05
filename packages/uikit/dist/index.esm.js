@@ -3315,7 +3315,7 @@ var useKonamiCheatCode = function (matchedCodeHandler) {
 
 var baseColors = {
     failure: "#ED4B9E",
-    primary: "#3ac125",
+    primary: "#33b3cc",
     primaryBright: "#fa9f3f",
     primaryDark: "#da750a",
     secondary: "#251e20",
@@ -4298,7 +4298,7 @@ var templateObject_1$d;
 var PriceLink = styled.a(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var CakePrice = function (_a) {
     var cakePriceUsd = _a.cakePriceUsd;
-    return cakePriceUsd ? (React.createElement(PriceLink, { href: "https://bscscan.com/token/0x88888888Fc33e4ECba8958c0c2AD361089E19885", target: "_blank" },
+    return cakePriceUsd ? (React.createElement(PriceLink, { href: "https://bscscan.com/token/0x2e8799f0A26d8A9f37a0b4747Fa534f039C2d234", target: "_blank" },
         React.createElement(Icon$1O, { width: "24px", mr: "8px" }),
         React.createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React.createElement(Skeleton, { width: 80, height: 24 }));
 };
