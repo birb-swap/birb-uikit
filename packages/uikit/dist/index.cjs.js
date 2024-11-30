@@ -4501,7 +4501,7 @@ var Menu$1 = function (_a) {
     return (React__default['default'].createElement(Wrapper, { background: background },
         React__default['default'].createElement(StyledNav, { showMenu: showMenu, isTransparent: isNavTransparent },
             React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
-            React__default['default'].createElement(Flex, null,
+            React__default['default'].createElement(Flex, { alignContent: "center" },
                 globalMenu,
                 " ",
                 userMenu)),
